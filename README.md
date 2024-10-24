@@ -128,3 +128,11 @@ vscode でのコード補完を有効にするためには、拡張機能の`con
     "provider": "ollama"
 },
 ```
+
+## open-interpreterを利用する
+
+以下のコマンドで対話セッションが開始します。
+
+```
+docker compose run --rm oi
+```
