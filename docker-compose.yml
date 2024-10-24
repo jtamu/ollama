@@ -24,3 +24,11 @@ services:
       - ollama
     environment:
       - OLLAMA_BASE_URL=http://ollama:11434
+  oi:
+    build:
+      context: .
+      dockerfile: open-interpreter/Dockerfile
+    volumes:
+      - ./open-interpreter/profiles:/root/.config/open-interpreter/profiles
+    environment:
+      - OLLAMA_API_BASE=http://ollama:11434

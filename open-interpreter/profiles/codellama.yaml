@@ -1,0 +1,3 @@
+llm:
+  model: "ollama/codellama"
+  api_base: http://ollama:11434
