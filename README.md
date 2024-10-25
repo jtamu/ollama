@@ -136,3 +136,11 @@ vscode でのコード補完を有効にするためには、拡張機能の`con
 ```
 docker compose run --rm oi
 ```
+
+モデルはデフォルトで`ollama/codellama`を使用します。
+
+モデルを切り替えるには、以下のように`--model`を指定します。
+
+```
+docker compose run --rm oi --model ollama/deepseek-coder-v2
+```
