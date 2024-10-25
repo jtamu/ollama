@@ -29,6 +29,7 @@ services:
       context: .
       dockerfile: open-interpreter/Dockerfile
     volumes:
-      - ./open-interpreter/profiles:/root/.config/open-interpreter/profiles
+      - ./open-interpreter/profiles:/opt/app/open-interpreter/profiles
+      - $HOME:$HOME
     environment:
       - OLLAMA_API_BASE=http://ollama:11434
