@@ -14,6 +14,8 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
+    environment:
+      - OLLAMA_NOPRUNE=true
   webui:
     image: ghcr.io/open-webui/open-webui:main
     volumes:
