@@ -144,3 +144,13 @@ docker compose run --rm oi
 ```
 docker compose run --rm oi --model ollama/deepseek-coder-v2
 ```
+
+## repository-loaderでRAG用のテキストファイルを出力する
+
+`./repository-loader/work`配下にテキストファイルとして出力したいリポジトリをディレクトリごと配置してください。
+
+以下のコマンドでテキストファイルを出力します。
+
+```
+docker compose run --rm repo-loader /work/example_repo -o example.txt
+```

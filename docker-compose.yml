@@ -35,3 +35,10 @@ services:
       - $HOME:$HOME
     environment:
       - OLLAMA_API_BASE=http://ollama:11434
+  repo-loader:
+    build:
+      context: .
+      dockerfile: repository-loader/Dockerfile
+    volumes:
+      - ./repository-loader/work:/work
+    tty: true
