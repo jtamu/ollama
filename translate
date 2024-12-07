@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [ -p /dev/stdin ]; then
+    input=$(cat -)
+elif [ $# -ne 0 ]; then
+    input=$(echo $1)
+else
+    echo "パイプか引数を指定してください。"
+    exit 1
+fi
+
+MODEL="7shi/gemma-2-jpn-translate:2b-instruct-q8_0"
+
+curl -s http://localhost:11434/api/generate \
+  -d "{
+    \"model\": \"$MODEL\",
+    \"prompt\": \"$input\"
+  }" | jq -r '.response' | tr -d '\n'
