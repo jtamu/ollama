@@ -11,8 +11,7 @@ fi
 
 MODEL="7shi/gemma-2-jpn-translate:2b-instruct-q8_0"
 
+prompt=$(echo $input | tr -d '\n')
+
 curl -s http://localhost:11434/api/generate \
-  -d "{
-    \"model\": \"$MODEL\",
-    \"prompt\": \"$input\"
-  }" | jq -r '.response' | tr -d '\n'
+  -d "$(jq -n --arg model "$MODEL" --arg prompt "Please translate the following content into Japanese: $prompt" '{model: $model, prompt: $prompt}')" | jq -r '.response' | tr -d '\n'
