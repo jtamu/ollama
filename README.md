@@ -134,15 +134,15 @@ vscode でのコード補完を有効にするためには、拡張機能の`con
 以下のコマンドで対話セッションが開始します。
 
 ```
-docker compose run --rm oi
+./interpreter.sh
 ```
 
 モデルはデフォルトで`ollama/codellama`を使用します。
 
-モデルを切り替えるには、以下のように`--model`を指定します。
+モデルを切り替えるには、以下のように指定します。
 
 ```
-docker compose run --rm oi --model ollama/deepseek-coder-v2
+./interpreter.sh ollama/deepseek-coder-v2
 ```
 
 ## repository-loaderでRAG用のテキストファイルを出力する

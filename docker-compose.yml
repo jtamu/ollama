@@ -29,11 +29,21 @@ services:
     build:
       context: .
       dockerfile: open-interpreter/Dockerfile
+    shm_size: 4096m
     volumes:
       - ./open-interpreter/profiles:/opt/app/open-interpreter/profiles
       - $HOME:$HOME
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.Xauthority:/root/.Xauthority:rw
+      - ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native
+      - /etc/machine-id:/etc/machine-id:ro
+      - /run/user/${UID:-1000}/pulse:/run/user/${UID:-1000}/pulse
     environment:
       - OLLAMA_API_BASE=http://ollama:11434
+      - DISPLAY=${DISPLAY}
+      - PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native
+    user: ${UID:-1000}:${GID:-1000}
+    tty: true
   repo-loader:
     build:
       context: .
