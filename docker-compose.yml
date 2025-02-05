@@ -19,6 +19,8 @@ services:
     image: ghcr.io/open-webui/open-webui:main
     volumes:
       - ./open-webui:/app/backend/data
+      - $HOME:$HOME
+      - ./webui-docs:/data/docs
     ports:
       - 8080:8080
     depends_on:
