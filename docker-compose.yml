@@ -66,4 +66,4 @@ services:
       - "3000:3000"
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    pull_policy: unless-stopped
+    pull_policy: always
