@@ -5,7 +5,7 @@ services:
       - ./ollama:/root/.ollama
     ports:
       - 11434:11434
-    restart: always
+    restart: unless-stopped
     deploy:
       resources:
         reservations:
@@ -66,4 +66,4 @@ services:
       - "3000:3000"
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    pull_policy: always
+    pull_policy: unless-stopped
